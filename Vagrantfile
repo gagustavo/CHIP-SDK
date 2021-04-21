@@ -11,7 +11,7 @@ def which(cmd)
   return nil
 end
 
-# usbfilter_exists and better_usbfilter_add originally part of a pull request 
+# usbfilter_exists and better_usbfilter_add originally part of a pull request
 # https://github.com/mitchellh/vagrant/issues/5774
 def usbfilter_exists(vendor_id, product_id)
     # Determine if a usbfilter with the provided Vendor/Product ID combination
@@ -31,7 +31,7 @@ def usbfilter_exists(vendor_id, product_id)
 
     vm_info = `VBoxManage showvminfo #{machine_id}`
     filter_match = "VendorId:         #{vendor_id}\nProductId:        #{product_id}\n"
-    
+
     return vm_info.include? filter_match
 end
 
@@ -108,7 +108,7 @@ Vagrant.configure(2) do |config|
          better_usbfilter_add(vb, "0525", "a4a7", "CHIP Linux Gadget USB Serial Port")
          better_usbfilter_add(vb, "067b", "2303", "PL2303 Serial Port")
          better_usbfilter_add(vb, "1f3a", "efe8", "CHIP")
-         
+
      end
   end
   #
@@ -125,6 +125,6 @@ Vagrant.configure(2) do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  config.vm.provision "shell", path:"https://raw.githubusercontent.com/NextThingCo/CHIP-SDK/master/setup_ubuntu1404.sh"
+  config.vm.provision "shell", path:"https://raw.githubusercontent.com/gagustavo/CHIP-SDK/master/setup_ubuntu1404.sh"
   #end
 end
