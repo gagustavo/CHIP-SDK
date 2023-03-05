@@ -5,6 +5,7 @@ sudo apt-get -y update
 sudo apt-get -y install \
  build-essential \
  git \
+ vim \
  mercurial \
  cmake \
  curl \
@@ -24,6 +25,7 @@ sudo apt-get -y install \
  g++-arm-linux-gnueabihf \
  pkg-config \
  libacl1-dev \
+ libfdt-dev \
  zlib1g-dev \
  liblzo2-dev \
  uuid-dev
@@ -55,6 +57,7 @@ if [ -d sunxi-tools ]; then
 fi
 git clone http://github.com/linux-sunxi/sunxi-tools
 pushd sunxi-tools
+git checkout v1.4.2
 make
 make misc
 SUNXI_TOOLS=(sunxi-bootinfo
